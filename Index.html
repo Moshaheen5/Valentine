@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine 💖</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #d6336c;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            position: relative;
+            height: 200px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #yesBtn {
+            background-color: #ff5c8a;
+            color: white;
+            margin-right: 20px;
+        }
+
+        #yesBtn:hover {
+            background-color: #ff3b73;
+        }
+
+        #noBtn {
+            position: absolute;
+            background-color: #adb5bd;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+        <button id="noBtn">No 😅</button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+
+    function moveButton() {
+        const container = document.querySelector(".buttons");
+        const containerRect = container.getBoundingClientRect();
+
+        const maxX = containerRect.width - noBtn.offsetWidth;
+        const maxY = containerRect.height - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    }
+
+    // Run away on hover (desktop)
+    noBtn.addEventListener("mouseover", moveButton);
+
+    // Run away on touch (mobile)
+    noBtn.addEventListener("touchstart", moveButton);
+
+    function sayYes() {
+        alert("Yaaay! 💖 You just made my heart very happy 🥰");
+    }
+</script>
+
+</body>
+</html>
